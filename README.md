@@ -15,6 +15,26 @@
 
 A passive attack surface mapping and reconnaissance toolkit for authorized web security assessments.
 
+---
+
+### Live Outputs: 
+
+- [google.com | attack_surface_graph.html](https://sagarbiswas-multihat.github.io/attack-surface-toolkit/output/google.com_2026-03-20_05-47-56/attack_surface_graph.html)
+
+- [google.com | report.html](https://sagarbiswas-multihat.github.io/attack-surface-toolkit/output/google.com_2026-03-20_05-47-56/report.html)
+
+---
+
+- [reservebd.com | attack_surface_graph.html](https://sagarbiswas-multihat.github.io/attack-surface-toolkit/output/reservexbd.com_2026-03-20_05-41-31/attack_surface_graph.html)
+- [reservebd.com | report.html](https://sagarbiswas-multihat.github.io/attack-surface-toolkit/output/reservexbd.com_2026-03-20_05-41-31/report.html)
+
+---
+
+- [sagarbiswas-multihat.github.io | attack_surface_graph.html](https://sagarbiswas-multihat.github.io/attack-surface-toolkit/output/sagarbiswas-multihat.github.io_2026-03-20_05-52-31/attack_surface_graph.html)
+- [sagarbiswas-multihat.github.io | report.html](https://sagarbiswas-multihat.github.io/attack-surface-toolkit/output/sagarbiswas-multihat.github.io_2026-03-20_05-52-31/report.html)
+
+---
+
 ## What This Is
 
 This project maps a web target’s external exposure using passive OSINT and non-destructive metadata collection. It was built to produce the kind of output a security consultant can hand to a client directly: clear evidence, practical findings, and prioritized remediation guidance.
