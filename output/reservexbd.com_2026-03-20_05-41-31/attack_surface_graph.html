@@ -1,0 +1,357 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 900px;
+                 background-color: #0d1117;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#58a6ff", "copy_value": "reservexbd.com", "detail_body": "Type: Root Domain\nDomain: reservexbd.com\nTimestamp: 2026-03-20T05:41:31.944308+00:00\nSubdomains: 2\nInternal Links: 13\nExternal Links: 2\nScripts: 6\nForms: 1\nAPI Routes: 0\nAdmin Paths: 1", "detail_type": "Domain", "font": {"color": "#c9d1d9"}, "id": "reservexbd.com", "label": "reservexbd.com", "node_type": "root", "shape": "dot", "size": 44}, {"color": "#2a9d8f", "copy_value": "media.reservexbd.com", "detail_body": "Type: Subdomain\nName: media.reservexbd.com\nStatus: UNRESOLVABLE\nIP: 172.67.201.57\nSource: aggregated\nCDN/WAF: -\nRedirect Target: -", "detail_type": "Subdomain", "font": {"color": "#c9d1d9"}, "id": "sub::media.reservexbd.com", "label": "media.reservexbd.com", "node_type": "subdomain", "shape": "dot", "size": 24, "title": "Status: UNRESOLVABLE | IP: 172.67.201.57"}, {"color": "#2a9d8f", "copy_value": "reservexbd.com", "detail_body": "Type: Subdomain\nName: reservexbd.com\nStatus: LIVE\nIP: 172.66.0.96\nSource: aggregated\nCDN/WAF: -\nRedirect Target: -", "detail_type": "Subdomain", "font": {"color": "#c9d1d9"}, "id": "sub::reservexbd.com", "label": "reservexbd.com", "node_type": "subdomain", "shape": "dot", "size": 24, "title": "Status: LIVE | IP: 172.66.0.96"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com#main-content", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com#main-content\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /\nQuery: -\nFragment: main-content\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com#main-content", "label": "reservexbd.com#main-content", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com#main-content"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/", "label": "reservexbd.com/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/cdn-cgi/l/email-protection", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/cdn-cgi/l/email-protection\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /cdn-cgi/l/email-protection\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/cdn-cgi/l/email-protection", "label": "reservexbd.com/cdn-cgi/l/email-protectio", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/cdn-cgi/l/email-protection"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/contact/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/contact/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /contact/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/contact/", "label": "reservexbd.com/contact/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/contact/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/dining/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/dining/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /dining/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/dining/", "label": "reservexbd.com/dining/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/dining/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/dining/restaurant/Elysian-cafe-eatery-khilgao/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/dining/restaurant/Elysian-cafe-eatery-khilgao/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /dining/restaurant/Elysian-cafe-eatery-khilgao/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/dining/restaurant/Elysian-cafe-eatery-khilgao/", "label": "reservexbd.com/dining/restaurant/Elysian", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/dining/restaurant/Elysian-cafe-eatery-khilgao/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/dining/restaurant/cafe-appeliano/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/dining/restaurant/cafe-appeliano/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /dining/restaurant/cafe-appeliano/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/dining/restaurant/cafe-appeliano/", "label": "reservexbd.com/dining/restaurant/cafe-ap", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/dining/restaurant/cafe-appeliano/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/help-center/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/help-center/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /help-center/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/help-center/", "label": "reservexbd.com/help-center/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/help-center/"}, {"color": "#ff4d4f", "copy_value": "https://reservexbd.com/login/", "detail_body": "Type: Admin URL\nFull Value: https://reservexbd.com/login/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /login/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "Admin URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/login/", "label": "reservexbd.com/login/", "node_type": "admin", "shape": "dot", "size": 28, "title": "URL: https://reservexbd.com/login/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/partner-with-us/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/partner-with-us/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /partner-with-us/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/partner-with-us/", "label": "reservexbd.com/partner-with-us/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/partner-with-us/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/privacy-policy/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/privacy-policy/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /privacy-policy/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/privacy-policy/", "label": "reservexbd.com/privacy-policy/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/privacy-policy/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/refund-policy/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/refund-policy/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /refund-policy/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/refund-policy/", "label": "reservexbd.com/refund-policy/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/refund-policy/"}, {"color": "#8b949e", "copy_value": "https://reservexbd.com/terms-of-service/", "detail_body": "Type: Internal URL\nFull Value: https://reservexbd.com/terms-of-service/\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /terms-of-service/\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "URL", "font": {"color": "#c9d1d9"}, "id": "ep::https://reservexbd.com/terms-of-service/", "label": "reservexbd.com/terms-of-service/", "node_type": "endpoint", "shape": "dot", "size": 16, "title": "URL: https://reservexbd.com/terms-of-service/"}, {"color": "#f39c12", "copy_value": "https://www.facebook.com/share/17JiSyC4Xq/?mibextid=wwXIfr", "detail_body": "Type: External URL\nFull Value: https://www.facebook.com/share/17JiSyC4Xq/?mibextid=wwXIfr\nScheme: https\nHostname: www.facebook.com\nPort: default\nPath: /share/17JiSyC4Xq/\nQuery: mibextid=wwXIfr\nFragment: -\nInternal: No", "detail_type": "External URL", "font": {"color": "#c9d1d9"}, "id": "ext::https://www.facebook.com/share/17JiSyC4Xq/?mibextid=wwXIfr", "label": "www.facebook.com/share/17JiSyC4Xq/?mibex", "node_type": "external", "shape": "dot", "size": 16, "title": "External URL: https://www.facebook.com/share/17JiSyC4Xq/?mibextid=wwXIfr"}, {"color": "#f39c12", "copy_value": "https://www.instagram.com/reservexbd/", "detail_body": "Type: External URL\nFull Value: https://www.instagram.com/reservexbd/\nScheme: https\nHostname: www.instagram.com\nPort: default\nPath: /reservexbd/\nQuery: -\nFragment: -\nInternal: No", "detail_type": "External URL", "font": {"color": "#c9d1d9"}, "id": "ext::https://www.instagram.com/reservexbd/", "label": "www.instagram.com/reservexbd/", "node_type": "external", "shape": "dot", "size": 16, "title": "External URL: https://www.instagram.com/reservexbd/"}, {"color": "#f1c40f", "copy_value": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js", "detail_body": "Type: Script\nFull Value: https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js\nScheme: https\nHostname: cdn.jsdelivr.net\nPort: default\nPath: /npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js\nQuery: -\nFragment: -\nInternal: No", "detail_type": "Script", "font": {"color": "#c9d1d9"}, "id": "js::https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js", "label": "cdn.jsdelivr.net/npm/bootstrap@5.3.8/dis", "node_type": "js", "shape": "dot", "size": 14, "title": "Script: https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"}, {"color": "#f1c40f", "copy_value": "https://reservexbd.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js", "detail_body": "Type: Script\nFull Value: https://reservexbd.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "Script", "font": {"color": "#c9d1d9"}, "id": "js::https://reservexbd.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js", "label": "reservexbd.com/cdn-cgi/scripts/5c5dd728/", "node_type": "js", "shape": "dot", "size": 14, "title": "Script: https://reservexbd.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"}, {"color": "#f1c40f", "copy_value": "https://reservexbd.com/static/js/base.5e6f6a9a8448.js", "detail_body": "Type: Script\nFull Value: https://reservexbd.com/static/js/base.5e6f6a9a8448.js\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /static/js/base.5e6f6a9a8448.js\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "Script", "font": {"color": "#c9d1d9"}, "id": "js::https://reservexbd.com/static/js/base.5e6f6a9a8448.js", "label": "reservexbd.com/static/js/base.5e6f6a9a84", "node_type": "js", "shape": "dot", "size": 14, "title": "Script: https://reservexbd.com/static/js/base.5e6f6a9a8448.js"}, {"color": "#f1c40f", "copy_value": "https://reservexbd.com/static/js/main-CLzop6rn.229dfdb8911a.js", "detail_body": "Type: Script\nFull Value: https://reservexbd.com/static/js/main-CLzop6rn.229dfdb8911a.js\nScheme: https\nHostname: reservexbd.com\nPort: default\nPath: /static/js/main-CLzop6rn.229dfdb8911a.js\nQuery: -\nFragment: -\nInternal: Yes", "detail_type": "Script", "font": {"color": "#c9d1d9"}, "id": "js::https://reservexbd.com/static/js/main-CLzop6rn.229dfdb8911a.js", "label": "reservexbd.com/static/js/main-CLzop6rn.2", "node_type": "js", "shape": "dot", "size": 14, "title": "Script: https://reservexbd.com/static/js/main-CLzop6rn.229dfdb8911a.js"}, {"color": "#f1c40f", "copy_value": "https://www.googletagmanager.com/gtag/js?id=G-RT6VQ6Q4WS", "detail_body": "Type: Script\nFull Value: https://www.googletagmanager.com/gtag/js?id=G-RT6VQ6Q4WS\nScheme: https\nHostname: www.googletagmanager.com\nPort: default\nPath: /gtag/js\nQuery: id=G-RT6VQ6Q4WS\nFragment: -\nInternal: No", "detail_type": "Script", "font": {"color": "#c9d1d9"}, "id": "js::https://www.googletagmanager.com/gtag/js?id=G-RT6VQ6Q4WS", "label": "www.googletagmanager.com/gtag/js?id=G-RT", "node_type": "js", "shape": "dot", "size": 14, "title": "Script: https://www.googletagmanager.com/gtag/js?id=G-RT6VQ6Q4WS"}, {"color": "#f1c40f", "copy_value": "inline-script", "detail_body": "Type: Script\nValue: inline-script\nNature: Inline/Relative script reference", "detail_type": "Script", "font": {"color": "#c9d1d9"}, "id": "js::inline-script", "label": "inline-script", "node_type": "js", "shape": "dot", "size": 14, "title": "Script: inline-script"}, {"color": "#ff4d4f", "copy_value": "HDR-001: Content-Security-Policy header is missing", "detail_body": "Type: High Risk Finding\nID: HDR-001\nCategory: Security Headers\nRisk: HIGH\nScore Impact: 8\nFinding: Content-Security-Policy header is missing\nRecommendation: Implement a strict CSP policy tailored to required assets.\nReferences: https://owasp.org/www-project-secure-headers/", "detail_type": "High Risk Finding", "font": {"color": "#c9d1d9"}, "id": "risk::HDR-001", "label": "HDR-001", "node_type": "endpoint", "shape": "dot", "size": 48, "title": "Content-Security-Policy header is missing\nRisk: HIGH"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "reservexbd.com", "to": "sub::media.reservexbd.com", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "sub::reservexbd.com", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com#main-content", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/cdn-cgi/l/email-protection", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/contact/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/dining/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/dining/restaurant/Elysian-cafe-eatery-khilgao/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/dining/restaurant/cafe-appeliano/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/help-center/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/login/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/partner-with-us/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/privacy-policy/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/refund-policy/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ep::https://reservexbd.com/terms-of-service/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ext::https://www.facebook.com/share/17JiSyC4Xq/?mibextid=wwXIfr", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "ext::https://www.instagram.com/reservexbd/", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "js::https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "js::https://reservexbd.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "js::https://reservexbd.com/static/js/base.5e6f6a9a8448.js", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "js::https://reservexbd.com/static/js/main-CLzop6rn.229dfdb8911a.js", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "js::https://www.googletagmanager.com/gtag/js?id=G-RT6VQ6Q4WS", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "js::inline-script", "width": 1}, {"arrows": "to", "from": "reservexbd.com", "to": "risk::HDR-001", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.35,
+            "damping": 0.09,
+            "gravitationalConstant": -30000,
+            "springConstant": 0.001,
+            "springLength": 120
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    
+<style>
+    #node-details-panel {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: min(520px, 92vw);
+        background: rgba(13, 17, 23, 0.96);
+        border: 1px solid #30363d;
+        border-radius: 10px;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+        color: #c9d1d9;
+        z-index: 9999;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+    }
+    #node-details-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid #30363d;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    #node-details-actions {
+        display: flex;
+        gap: 8px;
+    }
+    #node-copy-btn, #node-clear-btn {
+        border: 1px solid #30363d;
+        background: #21262d;
+        color: #c9d1d9;
+        border-radius: 6px;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    #node-copy-btn[disabled] {
+        opacity: 0.45;
+        cursor: not-allowed;
+    }
+    #node-details-body {
+        padding: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+        max-height: 360px;
+        overflow: auto;
+        word-break: break-word;
+        user-select: text;
+        white-space: pre-wrap;
+    }
+</style>
+<script>
+    (function () {
+        function copyText(value) {
+            if (!value) {
+                return Promise.resolve(false);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                return navigator.clipboard.writeText(value).then(function () { return true; }).catch(function () { return false; });
+            }
+            var textArea = document.createElement('textarea');
+            textArea.value = value;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            var ok = false;
+            try {
+                ok = document.execCommand('copy');
+            } catch (e) {
+                ok = false;
+            }
+            document.body.removeChild(textArea);
+            return Promise.resolve(ok);
+        }
+
+        function initNodePanel() {
+            if (typeof network === 'undefined' || typeof nodes === 'undefined') {
+                return;
+            }
+
+            var panel = document.createElement('div');
+            panel.id = 'node-details-panel';
+            panel.innerHTML = ""
+                + '<div id="node-details-header">'
+                + '  <span id="node-details-title">Node Details</span>'
+                + '  <div id="node-details-actions">'
+                + '    <button id="node-copy-btn" disabled>Copy</button>'
+                + '    <button id="node-clear-btn">Clear</button>'
+                + '  </div>'
+                + '</div>'
+                + '<div id="node-details-body">Click a node to view full details.</div>';
+
+            document.body.appendChild(panel);
+
+            var titleEl = document.getElementById('node-details-title');
+            var bodyEl = document.getElementById('node-details-body');
+            var copyBtn = document.getElementById('node-copy-btn');
+            var clearBtn = document.getElementById('node-clear-btn');
+            var copyValue = '';
+
+            function relationDetails(nodeId) {
+                if (!nodeId || !allEdges) {
+                    return '';
+                }
+
+                var incoming = 0;
+                var outgoing = 0;
+                var connected = [];
+                var seen = {};
+
+                Object.keys(allEdges).forEach(function (edgeId) {
+                    var edge = allEdges[edgeId];
+                    if (!edge) {
+                        return;
+                    }
+
+                    if (edge.to === nodeId) {
+                        incoming += 1;
+                        if (edge.from && edge.from !== nodeId && !seen[edge.from]) {
+                            seen[edge.from] = true;
+                            connected.push(edge.from);
+                        }
+                    }
+
+                    if (edge.from === nodeId) {
+                        outgoing += 1;
+                        if (edge.to && edge.to !== nodeId && !seen[edge.to]) {
+                            seen[edge.to] = true;
+                            connected.push(edge.to);
+                        }
+                    }
+                });
+
+                var neighborLabels = connected.slice(0, 12).map(function (neighborId) {
+                    var neighbor = nodes.get(neighborId);
+                    return neighbor ? (neighbor.label || neighbor.id || neighborId) : neighborId;
+                });
+                var hasMore = connected.length > 12;
+
+                return ''
+                    + '\n\nGraph Context:'
+                    + '\n- Incoming edges: ' + incoming
+                    + '\n- Outgoing edges: ' + outgoing
+                    + '\n- Connected nodes: ' + connected.length
+                    + (neighborLabels.length > 0 ? ('\n- Neighbors: ' + neighborLabels.join(', ') + (hasMore ? ', ...' : '')) : '');
+            }
+
+            function setContent(node) {
+                if (!node) {
+                    titleEl.textContent = 'Node Details';
+                    bodyEl.textContent = 'Click a node to view full details.';
+                    copyBtn.disabled = true;
+                    copyValue = '';
+                    return;
+                }
+                var typeLabel = node.detail_type || node.node_type || 'node';
+                titleEl.textContent = typeLabel + ': ' + (node.label || node.id || 'unknown');
+                bodyEl.textContent = (node.detail_body || node.title || node.id || '') + relationDetails(node.id);
+                copyValue = node.copy_value || node.detail_body || node.title || '';
+                copyBtn.disabled = !copyValue;
+            }
+
+            network.on('click', function (params) {
+                if (!params.nodes || params.nodes.length === 0) {
+                    return;
+                }
+                setContent(nodes.get(params.nodes[0]));
+            });
+
+            copyBtn.addEventListener('click', function () {
+                copyText(copyValue).then(function (ok) {
+                    var old = copyBtn.textContent;
+                    copyBtn.textContent = ok ? 'Copied' : 'Copy failed';
+                    setTimeout(function () { copyBtn.textContent = old; }, 1000);
+                });
+            });
+
+            clearBtn.addEventListener('click', function () {
+                setContent(null);
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNodePanel);
+        } else {
+            initNodePanel();
+        }
+    })();
+</script>
+
+</body>
+</html>

@@ -49,7 +49,6 @@ Thumbs.db
 
 # Logs and runtime outputs
 recon_toolkit.log
-output/
 logs/
 *.log
 

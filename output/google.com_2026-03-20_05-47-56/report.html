@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attack Surface Mapping & Passive Reconnaissance Toolkit - google.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --accent: #58a6ff;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --high: #ff4d4f;
+      --medium: #f39c12;
+      --low: #58a6ff;
+      --pass: #2ecc71;
+      --border: #30363d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: #0b1016;
+      border-right: 1px solid var(--border);
+      padding: 20px;
+      overflow-y: auto;
+    }
+    nav h1 { font-size: 1rem; margin: 0 0 12px; }
+    nav a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 0;
+      font-size: 0.92rem;
+    }
+    nav a:hover { color: var(--accent); }
+    main { padding: 24px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    h2 { margin: 0 0 12px; color: #fff; }
+    h3 { margin: 12px 0 8px; }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    .badge { border-radius: 999px; padding: 4px 10px; font-size: 0.78rem; font-weight: 700; display: inline-block; }
+    .HIGH { background: rgba(255,77,79,.15); color: var(--high); }
+    .MEDIUM { background: rgba(243,156,18,.15); color: var(--medium); }
+    .LOW { background: rgba(88,166,255,.15); color: var(--low); }
+    .PASS { background: rgba(46,204,113,.15); color: var(--pass); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      padding: 10px;
+      vertical-align: top;
+    }
+    th { color: #fff; cursor: pointer; }
+    .gauge-wrap { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; }
+    .gauge {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--accent) 0deg, #2d333b 0deg);
+      position: relative;
+      margin: auto;
+    }
+    .gauge::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .gauge-value {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; background: #0f141b; }
+    footer { color: var(--muted); font-size: 0.85rem; margin: 30px 0; }
+    @media print {
+      body { display: block; background: white; color: black; }
+      nav { display: none; }
+      .card { break-inside: avoid; border: 1px solid #ddd; }
+      th { color: black; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Recon Report</h1>
+    <a href="#executive">1. Executive Summary</a>
+    <a href="#scope">2. Scope & Methodology</a>
+    <a href="#subdomains">3. Subdomains</a>
+    <a href="#dns">4. DNS Analysis</a>
+    <a href="#ssl">5. SSL/TLS</a>
+    <a href="#tech">6. Technology Stack</a>
+    <a href="#headers">7. Security Headers</a>
+    <a href="#surface">8. Attack Surface Map</a>
+    <a href="#wayback">9. Wayback Findings</a>
+    <a href="#risks">10. Risk Summary</a>
+    <a href="#recommendations">11. Recommendations</a>
+    <a href="#appendix">12. Appendix</a>
+  </nav>
+
+  <main>
+    <section id="executive" class="card">
+      <h2>Executive Summary</h2>
+      <p class="meta">Attack Surface Mapping & Passive Reconnaissance Toolkit • Domain: <strong>google.com</strong> • Date: March 20, 2026 at 05:47 UTC • Version: 1.0.0</p>
+      <div class="gauge-wrap">
+        <div class="gauge" data-score="17">
+          <div class="gauge-value">
+            <div style="font-size:1.8rem; font-weight:700">17</div>
+            <div>/ 100</div>
+          </div>
+        </div>
+        <div>
+          <h3>LOW EXPOSURE</h3>
+          <ul>
+            <li>SSL Issues: 2/20</li>
+            <li>Missing Headers: 11/20</li>
+            <li>DNS Issues: 3/15</li>
+            <li>Admin Exposure: 0/15</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="scope" class="card">
+      <h2>Scope & Methodology</h2>
+      <p>Assessment method: passive, non-destructive reconnaissance only. No brute force, payload injection, or exploitation techniques were used.</p>
+      <ul>
+        <li>DNS, certificate transparency, archive intelligence, and metadata inspection</li>
+        <li>Homepage-depth surface extraction and header posture review</li>
+        <li>Historical URL triage and weighted exposure scoring</li>
+      </ul>
+    </section>
+
+    <section id="subdomains" class="card">
+      <h2>Subdomains</h2>
+      <table class="sortable">
+        <thead><tr><th>Name</th><th>Status</th><th>IP</th><th>CDN</th></tr></thead>
+        <tbody>
+          <tr><td>accounts.flexpack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>accounts.freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>accounts.google.com</td><td>REDIRECT</td><td>192.178.211.84</td><td>-</td></tr>
+          <tr><td>ads-compare.eem.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>adwords.google.com</td><td>UNRESOLVABLE</td><td>192.178.211.101</td><td>-</td></tr>
+          <tr><td>alt1.aspmx.l.google.com</td><td>LIVE</td><td>172.217.221.27</td><td>-</td></tr>
+          <tr><td>alt1.gmail-smtp-in.l.google.com</td><td>LIVE</td><td>172.217.221.27</td><td>-</td></tr>
+          <tr><td>alt1.gmr-smtp-in.l.google.com</td><td>LIVE</td><td>172.217.221.14</td><td>-</td></tr>
+          <tr><td>alt2.aspmx.l.google.com</td><td>LIVE</td><td>192.178.163.26</td><td>-</td></tr>
+          <tr><td>alt2.gmail-smtp-in.l.google.com</td><td>LIVE</td><td>192.178.163.27</td><td>-</td></tr>
+          <tr><td>alt2.gmr-smtp-in.l.google.com</td><td>LIVE</td><td>192.178.163.14</td><td>-</td></tr>
+          <tr><td>alt3.aspmx.l.google.com</td><td>LIVE</td><td>172.217.78.26</td><td>-</td></tr>
+          <tr><td>alt3.gmail-smtp-in.l.google.com</td><td>LIVE</td><td>172.217.78.27</td><td>-</td></tr>
+          <tr><td>alt3.gmr-smtp-in.l.google.com</td><td>LIVE</td><td>172.217.78.14</td><td>-</td></tr>
+          <tr><td>alt4.aspmx.l.google.com</td><td>LIVE</td><td>142.250.101.26</td><td>-</td></tr>
+          <tr><td>alt4.gmail-smtp-in.l.google.com</td><td>LIVE</td><td>142.250.101.27</td><td>-</td></tr>
+          <tr><td>alt4.gmr-smtp-in.l.google.com</td><td>LIVE</td><td>142.250.101.14</td><td>-</td></tr>
+          <tr><td>answers.google.com</td><td>REDIRECT</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>apis.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>appengine.google.com</td><td>REDIRECT</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>apps-secure-data-connector.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>aspmx.l.google.com</td><td>LIVE</td><td>142.250.4.26</td><td>-</td></tr>
+          <tr><td>audioads.google.com</td><td>UNRESOLVABLE</td><td>142.251.220.110</td><td>-</td></tr>
+          <tr><td>auth.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>bigstore-test.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>bigstore.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>blogspot.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>c.pack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache1.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache1.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache1.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache2.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache2.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache2.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache3.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache3.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache3.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache4.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache4.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache4.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache5.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache5.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache5.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache6.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache6.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache6.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache7.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache7.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache7.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache8.c.docs.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache8.c.play.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cache8.c.video.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cag.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cert-test.sandbox.google.com</td><td>LIVE</td><td>74.125.68.90</td><td>-</td></tr>
+          <tr><td>checkout.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>chrome.google.com</td><td>REDIRECT</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>client-channel.google.com</td><td>UNRESOLVABLE</td><td>142.251.43.46</td><td>-</td></tr>
+          <tr><td>clients.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>cloud.google.com</td><td>LIVE</td><td>142.251.221.174</td><td>-</td></tr>
+          <tr><td>cod.ext.google.com</td><td>LIVE</td><td>216.239.44.73</td><td>-</td></tr>
+          <tr><td>code.google.com</td><td>LIVE</td><td>142.251.222.174</td><td>-</td></tr>
+          <tr><td>corp-backups.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>corp.google.com</td><td>UNRESOLVABLE</td><td>142.250.4.129</td><td>-</td></tr>
+          <tr><td>da.ext.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>da.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>dasher-qa.corp.google.com</td><td>UNRESOLVABLE</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>dasher.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>demetrius-codespot.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>demetrius-googlecode.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>demetrius.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>desktop.l.google.com</td><td>UNRESOLVABLE</td><td>142.250.77.100</td><td>-</td></tr>
+          <tr><td>devconsole-testers.sandbox.google.com</td><td>UNRESOLVABLE</td><td>172.217.194.81</td><td>-</td></tr>
+          <tr><td>developer.google.com</td><td>REDIRECT</td><td>142.251.43.238</td><td>-</td></tr>
+          <tr><td>developers.google.com</td><td>LIVE</td><td>142.250.205.142</td><td>-</td></tr>
+          <tr><td>dfa7.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>dg.video.google.com</td><td>UNRESOLVABLE</td><td>172.217.194.176</td><td>-</td></tr>
+          <tr><td>docs-dev.corp.google.com</td><td>UNRESOLVABLE</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>docs-nightly.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>docs-platinum.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>docs-qa.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>docs.google.com</td><td>REDIRECT</td><td>142.251.220.110</td><td>-</td></tr>
+          <tr><td>docs.sandbox.google.com</td><td>REDIRECT</td><td>142.250.4.81</td><td>-</td></tr>
+          <tr><td>drive-test.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>drive.google.com</td><td>REDIRECT</td><td>172.217.24.14</td><td>-</td></tr>
+          <tr><td>drive.sandbox.google.com</td><td>REDIRECT</td><td>172.253.118.81</td><td>-</td></tr>
+          <tr><td>dthree.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>ecc-test.sandbox.google.com</td><td>LIVE</td><td>142.251.12.81</td><td>-</td></tr>
+          <tr><td>eggroll.ext.google.com</td><td>LIVE</td><td>216.239.44.90</td><td>-</td></tr>
+          <tr><td>ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>flexpack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>focus.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>fra-da.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>freezone.accounts.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>freezone.m.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>freezone.mail.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>friendconnect.google.com</td><td>UNRESOLVABLE</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>gaiastaging.flexpack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>gaiastaging.freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>games.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>ghs.google.com</td><td>LIVE</td><td>142.250.67.51</td><td>-</td></tr>
+          <tr><td>git.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>glass-eur.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>glass-mtv.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>glass-twd.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>glass.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>gmail-smtp-in.l.google.com</td><td>LIVE</td><td>74.125.24.27</td><td>-</td></tr>
+          <tr><td>gmail.google.com</td><td>REDIRECT</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>gmr-smtp-in.l.google.com</td><td>LIVE</td><td>74.125.200.14</td><td>-</td></tr>
+          <tr><td>google-proxy-74-125-212-167.google.com</td><td>LIVE</td><td>74.125.212.167</td><td>-</td></tr>
+          <tr><td>google.com</td><td>REDIRECT</td><td>142.251.222.206</td><td>-</td></tr>
+          <tr><td>googlesource.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>groups.google.com</td><td>REDIRECT</td><td>64.233.170.113</td><td>-</td></tr>
+          <tr><td>hosted-id.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>hot-da.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>hyd-da.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>ice.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>ics.prod.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>images.google.com</td><td>LIVE</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>images.l.google.com</td><td>UNRESOLVABLE</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>jaiku.l.google.com</td><td>UNRESOLVABLE</td><td>142.250.77.113</td><td>-</td></tr>
+          <tr><td>jmt0.google.com</td><td>UNRESOLVABLE</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>jotspot-qa08.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>login.corp.google.com</td><td>LIVE</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>loop.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>m.google.com</td><td>REDIRECT</td><td>142.251.43.235</td><td>-</td></tr>
+          <tr><td>m.guts.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>m.gutsdev.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>mail-ua1-f9.google.com</td><td>LIVE</td><td>209.85.222.9</td><td>-</td></tr>
+          <tr><td>mail-vk1-f251.google.com</td><td>LIVE</td><td>209.85.221.251</td><td>-</td></tr>
+          <tr><td>mail.flexpack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>mail.freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>mail.google.com</td><td>REDIRECT</td><td>142.250.205.69</td><td>-</td></tr>
+          <tr><td>meeting.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>misc-sni.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>misc.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>mtalk.google.com</td><td>LIVE</td><td>172.253.118.188</td><td>-</td></tr>
+          <tr><td>mtv-da-1.ad.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>mtv-da.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>mtv-da.ext.google.com</td><td>LIVE</td><td>216.239.45.170</td><td>-</td></tr>
+          <tr><td>mx.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>mygeist.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>mygeist2010.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>news-cctld.l.google.com</td><td>UNRESOLVABLE</td><td>142.251.222.131</td><td>-</td></tr>
+          <tr><td>news.freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>onex.wifi.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-fixprod.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-impersonation.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-ocdemo.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-qa.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-staging.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-uberproxy.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-vctask0.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-vcvrfy.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-yhtask0.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-yhvrfy.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-yqtask0.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>orkut-yqvrfy.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>oz-gmail.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>oz-s2.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>oz-www.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>photos.google.com</td><td>REDIRECT</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>plus.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>plus.flexpack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>plus.freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>plus.google.com</td><td>REDIRECT</td><td>142.251.223.14</td><td>-</td></tr>
+          <tr><td>plusone.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>postini.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>profiles.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>prom-qa.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>prom-qa.sandbox.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>prom-test.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>prom-test.sandbox.google.com</td><td>UNRESOLVABLE</td><td>74.125.24.81</td><td>-</td></tr>
+          <tr><td>prom.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>proxyconfig.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>pub-5701735781782373.afd.ghs.google.com</td><td>LIVE</td><td>142.250.205.115</td><td>-</td></tr>
+          <tr><td>qa.adz.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>rate-limited-proxy-74-125-149-19.google.com</td><td>LIVE</td><td>74.125.149.19</td><td>-</td></tr>
+          <tr><td>rate-limited-proxy-74-125-151-227.google.com</td><td>LIVE</td><td>74.125.151.227</td><td>-</td></tr>
+          <tr><td>rate-limited-proxy-74-125-218-131.google.com</td><td>LIVE</td><td>74.125.218.131</td><td>-</td></tr>
+          <tr><td>reseed.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sandbox.google.com</td><td>UNRESOLVABLE</td><td>172.253.118.81</td><td>-</td></tr>
+          <tr><td>script.sandbox.google.com</td><td>REDIRECT</td><td>142.250.4.81</td><td>-</td></tr>
+          <tr><td>search.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>search.flexpack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>search.freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>services.google.com</td><td>REDIRECT</td><td>142.250.206.14</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-nightly.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa01.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa02.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa03.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa04.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa05.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa06.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa07.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-qa08.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites-googlegroups-tctest.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>sites.google.com</td><td>REDIRECT</td><td>142.250.207.78</td><td>-</td></tr>
+          <tr><td>sites.sandbox.google.com</td><td>REDIRECT</td><td>74.125.130.81</td><td>-</td></tr>
+          <tr><td>soaproxyprod01.ext.google.com</td><td>LIVE</td><td>72.14.225.70</td><td>-</td></tr>
+          <tr><td>soaproxytest01.ext.google.com</td><td>LIVE</td><td>216.239.44.94</td><td>-</td></tr>
+          <tr><td>spdy-proxy-debug.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>spdy-proxy.ext.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-a.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-b.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-c.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-d.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-daily.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-daily.blogspot.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-gaia.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-git.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>staging-googlesource.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-prod.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-weekly.blogger.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>staging-weekly.blogspot.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>talk.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>talkgadget.google.com</td><td>UNRESOLVABLE</td><td>142.250.182.78</td><td>-</td></tr>
+          <tr><td>test.postini.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>toolbarqueries.google.com</td><td>UNRESOLVABLE</td><td>192.178.211.99</td><td>-</td></tr>
+          <tr><td>toolbarqueries.l.google.com</td><td>UNRESOLVABLE</td><td>192.178.211.147</td><td>-</td></tr>
+          <tr><td>trends.google.com</td><td>REDIRECT</td><td>172.217.24.132</td><td>-</td></tr>
+          <tr><td>twd-da.ext.google.com</td><td>LIVE</td><td>72.14.229.178</td><td>-</td></tr>
+          <tr><td>twdsalesgsa.twd.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>uberproxy-nocert.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>uberproxy-san.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>uberproxy.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>upload.google.com</td><td>UNRESOLVABLE</td><td>142.250.77.143</td><td>-</td></tr>
+          <tr><td>upload.video.google.com</td><td>UNRESOLVABLE</td><td>142.251.43.143</td><td>-</td></tr>
+          <tr><td>urchin.corp.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>url.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>vp.video.l.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>webdrive-test-canary.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>webdrive-test-prod.corp.google.com</td><td>REDIRECT</td><td>172.253.118.129</td><td>-</td></tr>
+          <tr><td>wide-blogspot.l.google.com</td><td>UNRESOLVABLE</td><td>192.178.211.197</td><td>-</td></tr>
+          <tr><td>wifi.google.com</td><td>UNRESOLVABLE</td><td>192.178.211.123</td><td>-</td></tr>
+          <tr><td>www.flexpack.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>www.freezone.google.com</td><td>UNRESOLVABLE</td><td>-</td><td>-</td></tr>
+          <tr><td>www.google.com</td><td>LIVE</td><td>142.251.155.119</td><td>-</td></tr>
+          <tr><td>www2.l.google.com</td><td>UNRESOLVABLE</td><td>172.217.24.132</td><td>-</td></tr>
+          <tr><td>www3.l.google.com</td><td>UNRESOLVABLE</td><td>142.250.206.14</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="dns" class="card">
+      <h2>DNS Analysis</h2>
+      <h3>Records</h3>
+      <table class="sortable">
+        <thead><tr><th>Type</th><th>Values</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>142.251.222.206</td></tr>
+          <tr><td>AAAA</td><td>2404:6800:4007:833::200e</td></tr>
+          <tr><td>MX</td><td>10 smtp.google.com.</td></tr>
+          <tr><td>NS</td><td>ns4.google.com., ns2.google.com., ns3.google.com., ns1.google.com.</td></tr>
+          <tr><td>TXT</td><td></td></tr>
+          <tr><td>CNAME</td><td></td></tr>
+        </tbody>
+      </table>
+      <h3>Flags</h3>
+      <ul>
+          <li><span class="badge MEDIUM">MEDIUM</span> SPF record missing or malformed.</li>
+          <li><span class="badge LOW">LOW</span> No DKIM hints discovered in queried TXT records.</li>
+      </ul>
+    </section>
+
+    <section id="ssl" class="card">
+      <h2>SSL/TLS</h2>
+      <p>Issuer: CN=WR2,O=Google Trust Services,C=US</p>
+      <p>Expiry: 2026-05-18T18:19:43+00:00 (59 days)</p>
+      <p>TLS Version: TLSv1.3</p>
+      <p>Wildcard: Yes</p>
+      <h3>Risk Flags</h3>
+      <ul>
+          <li><span class="badge MEDIUM">MEDIUM</span> SAN entries reveal internal/dev naming conventions.</li>
+      </ul>
+    </section>
+
+    <section id="tech" class="card">
+      <h2>Technology Stack</h2>
+      <div class="chips">
+            <span class="chip">gws</span>
+      </div>
+    </section>
+
+    <section id="headers" class="card">
+      <h2>Security Headers</h2>
+      <table class="sortable">
+        <thead><tr><th>Header</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>content-security-policy-report-only</td><td>object-src 'none';base-uri 'self';script-src 'nonce-0QXxUpOZgilLaGYS3tvoKA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp</td></tr>
+          <tr><td>x-xss-protection</td><td>0</td></tr>
+          <tr><td>x-frame-options</td><td>SAMEORIGIN</td></tr>
+        </tbody>
+      </table>
+      <h3>Findings</h3>
+      <ul>
+          <li><span class="badge HIGH">HIGH</span> Content-Security-Policy header is missing</li>
+          <li><span class="badge HIGH">HIGH</span> Strict-Transport-Security header is missing</li>
+          <li><span class="badge LOW">LOW</span> x-content-type-options header is missing</li>
+          <li><span class="badge LOW">LOW</span> referrer-policy header is missing</li>
+          <li><span class="badge LOW">LOW</span> permissions-policy header is missing</li>
+      </ul>
+    </section>
+
+    <section id="surface" class="card">
+      <h2>Attack Surface Map</h2>
+      <p>Internal links: 8 | External links: 1</p>
+      <p>Forms: 1 | Scripts: 1</p>
+      <p>API-like routes: None detected</p>
+      <p>Admin paths: None detected</p>
+    </section>
+
+    <section id="wayback" class="card">
+      <h2>Wayback Findings</h2>
+      <table class="sortable">
+        <thead><tr><th>Historical URL</th><th>Risk</th></tr></thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="risks" class="card">
+      <h2>Risk Summary</h2>
+      <table class="sortable">
+        <thead><tr><th>ID</th><th>Category</th><th>Risk</th><th>Finding</th><th>Impact</th></tr></thead>
+        <tbody>
+            <tr>
+              <td>SSL-SAN-001</td>
+              <td>SSL/TLS</td>
+              <td><span class="badge MEDIUM">MEDIUM</span></td>
+              <td>SAN entries reveal internal/dev naming conventions.</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>HDR-001</td>
+              <td>Security Headers</td>
+              <td><span class="badge HIGH">HIGH</span></td>
+              <td>Content-Security-Policy header is missing</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>HDR-003</td>
+              <td>Security Headers</td>
+              <td><span class="badge HIGH">HIGH</span></td>
+              <td>Strict-Transport-Security header is missing</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>HDR-102</td>
+              <td>Security Headers</td>
+              <td><span class="badge LOW">LOW</span></td>
+              <td>x-content-type-options header is missing</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>HDR-103</td>
+              <td>Security Headers</td>
+              <td><span class="badge LOW">LOW</span></td>
+              <td>referrer-policy header is missing</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>HDR-104</td>
+              <td>Security Headers</td>
+              <td><span class="badge LOW">LOW</span></td>
+              <td>permissions-policy header is missing</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>DNS-SPF-001</td>
+              <td>DNS</td>
+              <td><span class="badge MEDIUM">MEDIUM</span></td>
+              <td>SPF record missing or malformed.</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>DNS-DKIM-001</td>
+              <td>DNS</td>
+              <td><span class="badge LOW">LOW</span></td>
+              <td>No DKIM hints discovered in queried TXT records.</td>
+              <td>2</td>
+            </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="recommendations" class="card">
+      <h2>Recommendations</h2>
+      <ol>
+            <li><strong>SSL-SAN-001</strong> — Avoid exposing non-production hostnames in public certificates.</li>
+            <li><strong>HDR-001</strong> — Implement a strict CSP policy tailored to required assets.</li>
+            <li><strong>HDR-003</strong> — Enable HSTS with an adequate max-age.</li>
+            <li><strong>HDR-102</strong> — Set a secure default for x-content-type-options.</li>
+            <li><strong>HDR-103</strong> — Set a secure default for referrer-policy.</li>
+            <li><strong>HDR-104</strong> — Set a secure default for permissions-policy.</li>
+            <li><strong>DNS-SPF-001</strong> — Publish a valid SPF record to reduce spoofing risks.</li>
+            <li><strong>DNS-DKIM-001</strong> — Ensure DKIM selectors are configured for active mail domains.</li>
+      </ol>
+    </section>
+
+    <section id="appendix" class="card">
+      <h2>Appendix</h2>
+      <p>Raw Subdomains: 244</p>
+      <p>Raw DNS A Records: 142.251.222.206</p>
+      <p>Historical Subdomains: </p>
+      <h3>Non-Security Headers</h3>
+      <table class="sortable">
+        <thead><tr><th>Header</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>date</td><td>Fri, 20 Mar 2026 05:48:55 GMT</td></tr>
+          <tr><td>expires</td><td>-1</td></tr>
+          <tr><td>cache-control</td><td>private, max-age=0</td></tr>
+          <tr><td>content-type</td><td>text/html; charset=ISO-8859-1</td></tr>
+          <tr><td>reporting-endpoints</td><td>default="//www.google.com/httpservice/retry/jserror?ei=x9-8ad77LIf2seMP8-yxuQI&cad=crash&error=Page%20Crash&jsel=1&bver=2405&dpf=IyEo2Kat1ZmqnVAO15MkhmK9ZswHwWUDSK_1H6OL7uA"</td></tr>
+          <tr><td>accept-ch</td><td>Sec-CH-Prefers-Color-Scheme</td></tr>
+          <tr><td>p3p</td><td>CP="This is not a P3P policy! See g.co/p3phelp for more info."</td></tr>
+          <tr><td>content-encoding</td><td>gzip</td></tr>
+          <tr><td>server</td><td>gws</td></tr>
+          <tr><td>set-cookie</td><td>__Secure-BUCKET=CLkF; expires=Wed, 16-Sep-2026 05:48:55 GMT; path=/; domain=.google.com; Secure; HttpOnly</td></tr>
+          <tr><td>alt-svc</td><td>h3=":443"; ma=2592000,h3-29=":443"; ma=2592000</td></tr>
+          <tr><td>transfer-encoding</td><td>chunked</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      This report was generated passively for educational/authorized assessment purposes only.
+    </footer>
+  </main>
+
+  <script>
+    const gauge = document.querySelector('.gauge');
+    if (gauge) {
+      const score = Number(gauge.dataset.score || 0);
+      const maxDeg = Math.max(0, Math.min(360, Math.round((score / 100) * 360)));
+      let current = 0;
+      const animate = () => {
+        current += 6;
+        if (current >= maxDeg) current = maxDeg;
+        gauge.style.background = `conic-gradient(var(--accent) ${current}deg, #2d333b ${current}deg)`;
+        if (current < maxDeg) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }
+
+    document.querySelectorAll('table.sortable th').forEach((header, index) => {
+      header.addEventListener('click', () => {
+        const table = header.closest('table');
+        const tbody = table.querySelector('tbody');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        const asc = header.dataset.asc !== 'true';
+        rows.sort((a, b) => {
+          const av = a.children[index]?.innerText?.trim() || '';
+          const bv = b.children[index]?.innerText?.trim() || '';
+          return asc ? av.localeCompare(bv, undefined, { numeric: true }) : bv.localeCompare(av, undefined, { numeric: true });
+        });
+        header.dataset.asc = asc;
+        rows.forEach((row) => tbody.appendChild(row));
+      });
+    });
+  </script>
+</body>
+</html>

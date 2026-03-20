@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attack Surface Mapping & Passive Reconnaissance Toolkit - reservexbd.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --accent: #58a6ff;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --high: #ff4d4f;
+      --medium: #f39c12;
+      --low: #58a6ff;
+      --pass: #2ecc71;
+      --border: #30363d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: #0b1016;
+      border-right: 1px solid var(--border);
+      padding: 20px;
+      overflow-y: auto;
+    }
+    nav h1 { font-size: 1rem; margin: 0 0 12px; }
+    nav a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 0;
+      font-size: 0.92rem;
+    }
+    nav a:hover { color: var(--accent); }
+    main { padding: 24px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    h2 { margin: 0 0 12px; color: #fff; }
+    h3 { margin: 12px 0 8px; }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    .badge { border-radius: 999px; padding: 4px 10px; font-size: 0.78rem; font-weight: 700; display: inline-block; }
+    .HIGH { background: rgba(255,77,79,.15); color: var(--high); }
+    .MEDIUM { background: rgba(243,156,18,.15); color: var(--medium); }
+    .LOW { background: rgba(88,166,255,.15); color: var(--low); }
+    .PASS { background: rgba(46,204,113,.15); color: var(--pass); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      padding: 10px;
+      vertical-align: top;
+    }
+    th { color: #fff; cursor: pointer; }
+    .gauge-wrap { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; }
+    .gauge {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--accent) 0deg, #2d333b 0deg);
+      position: relative;
+      margin: auto;
+    }
+    .gauge::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .gauge-value {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border: 1px solid var(--border); border-radius: 999px; padding: 6px 10px; background: #0f141b; }
+    footer { color: var(--muted); font-size: 0.85rem; margin: 30px 0; }
+    @media print {
+      body { display: block; background: white; color: black; }
+      nav { display: none; }
+      .card { break-inside: avoid; border: 1px solid #ddd; }
+      th { color: black; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Recon Report</h1>
+    <a href="#executive">1. Executive Summary</a>
+    <a href="#scope">2. Scope & Methodology</a>
+    <a href="#subdomains">3. Subdomains</a>
+    <a href="#dns">4. DNS Analysis</a>
+    <a href="#ssl">5. SSL/TLS</a>
+    <a href="#tech">6. Technology Stack</a>
+    <a href="#headers">7. Security Headers</a>
+    <a href="#surface">8. Attack Surface Map</a>
+    <a href="#wayback">9. Wayback Findings</a>
+    <a href="#risks">10. Risk Summary</a>
+    <a href="#recommendations">11. Recommendations</a>
+    <a href="#appendix">12. Appendix</a>
+  </nav>
+
+  <main>
+    <section id="executive" class="card">
+      <h2>Executive Summary</h2>
+      <p class="meta">Attack Surface Mapping & Passive Reconnaissance Toolkit • Domain: <strong>reservexbd.com</strong> • Date: March 20, 2026 at 05:41 UTC • Version: 1.0.0</p>
+      <div class="gauge-wrap">
+        <div class="gauge" data-score="14">
+          <div class="gauge-value">
+            <div style="font-size:1.8rem; font-weight:700">14</div>
+            <div>/ 100</div>
+          </div>
+        </div>
+        <div>
+          <h3>LOW EXPOSURE</h3>
+          <ul>
+            <li>SSL Issues: 0/20</li>
+            <li>Missing Headers: 6/20</li>
+            <li>DNS Issues: 3/15</li>
+            <li>Admin Exposure: 3/15</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="scope" class="card">
+      <h2>Scope & Methodology</h2>
+      <p>Assessment method: passive, non-destructive reconnaissance only. No brute force, payload injection, or exploitation techniques were used.</p>
+      <ul>
+        <li>DNS, certificate transparency, archive intelligence, and metadata inspection</li>
+        <li>Homepage-depth surface extraction and header posture review</li>
+        <li>Historical URL triage and weighted exposure scoring</li>
+      </ul>
+    </section>
+
+    <section id="subdomains" class="card">
+      <h2>Subdomains</h2>
+      <table class="sortable">
+        <thead><tr><th>Name</th><th>Status</th><th>IP</th><th>CDN</th></tr></thead>
+        <tbody>
+          <tr><td>media.reservexbd.com</td><td>UNRESOLVABLE</td><td>172.67.201.57</td><td>-</td></tr>
+          <tr><td>reservexbd.com</td><td>LIVE</td><td>172.66.0.96</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="dns" class="card">
+      <h2>DNS Analysis</h2>
+      <h3>Records</h3>
+      <table class="sortable">
+        <thead><tr><th>Type</th><th>Values</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>172.66.0.96, 162.159.140.98</td></tr>
+          <tr><td>AAAA</td><td>2a06:98c1:58::60, 2606:4700:7::60</td></tr>
+          <tr><td>MX</td><td>49 route3.mx.cloudflare.net., 17 route2.mx.cloudflare.net., 15 route1.mx.cloudflare.net.</td></tr>
+          <tr><td>NS</td><td>brett.ns.cloudflare.com., daniella.ns.cloudflare.com.</td></tr>
+          <tr><td>TXT</td><td>"v=spf1 include:_spf.mx.cloudflare.net ~all", "brevo-code:7db6516139814abecc26915ba28f64e8"</td></tr>
+          <tr><td>CNAME</td><td></td></tr>
+        </tbody>
+      </table>
+      <h3>Flags</h3>
+      <ul>
+          <li><span class="badge MEDIUM">MEDIUM</span> Potential origin IP exposure detected for CDN-protected infrastructure.</li>
+          <li><span class="badge LOW">LOW</span> No DKIM hints discovered in queried TXT records.</li>
+      </ul>
+    </section>
+
+    <section id="ssl" class="card">
+      <h2>SSL/TLS</h2>
+      <p>Issuer: CN=WE1,O=Google Trust Services,C=US</p>
+      <p>Expiry: 2026-05-27T14:34:12+00:00 (68 days)</p>
+      <p>TLS Version: TLSv1.3</p>
+      <p>Wildcard: No</p>
+      <h3>Risk Flags</h3>
+      <ul>
+      </ul>
+    </section>
+
+    <section id="tech" class="card">
+      <h2>Technology Stack</h2>
+      <div class="chips">
+            <span class="chip">Django</span>
+            <span class="chip">Google Analytics</span>
+            <span class="chip">Cloudflare</span>
+      </div>
+    </section>
+
+    <section id="headers" class="card">
+      <h2>Security Headers</h2>
+      <table class="sortable">
+        <thead><tr><th>Header</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>x-frame-options</td><td>DENY</td></tr>
+          <tr><td>strict-transport-security</td><td>max-age=31536000; includeSubDomains; preload</td></tr>
+          <tr><td>x-content-type-options</td><td>nosniff</td></tr>
+          <tr><td>referrer-policy</td><td>strict-origin-when-cross-origin</td></tr>
+          <tr><td>cross-origin-opener-policy</td><td>same-origin</td></tr>
+        </tbody>
+      </table>
+      <h3>Findings</h3>
+      <ul>
+          <li><span class="badge HIGH">HIGH</span> Content-Security-Policy header is missing</li>
+          <li><span class="badge LOW">LOW</span> permissions-policy header is missing</li>
+          <li><span class="badge LOW">LOW</span> x-xss-protection header is missing</li>
+      </ul>
+    </section>
+
+    <section id="surface" class="card">
+      <h2>Attack Surface Map</h2>
+      <p>Internal links: 13 | External links: 2</p>
+      <p>Forms: 1 | Scripts: 6</p>
+      <p>API-like routes: None detected</p>
+      <p>Admin paths: /login</p>
+    </section>
+
+    <section id="wayback" class="card">
+      <h2>Wayback Findings</h2>
+      <table class="sortable">
+        <thead><tr><th>Historical URL</th><th>Risk</th></tr></thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="risks" class="card">
+      <h2>Risk Summary</h2>
+      <table class="sortable">
+        <thead><tr><th>ID</th><th>Category</th><th>Risk</th><th>Finding</th><th>Impact</th></tr></thead>
+        <tbody>
+            <tr>
+              <td>HDR-001</td>
+              <td>Security Headers</td>
+              <td><span class="badge HIGH">HIGH</span></td>
+              <td>Content-Security-Policy header is missing</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>HDR-101</td>
+              <td>Security Headers</td>
+              <td><span class="badge LOW">LOW</span></td>
+              <td>permissions-policy header is missing</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>HDR-102</td>
+              <td>Security Headers</td>
+              <td><span class="badge LOW">LOW</span></td>
+              <td>x-xss-protection header is missing</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>DNS-ORIGIN-001</td>
+              <td>DNS</td>
+              <td><span class="badge MEDIUM">MEDIUM</span></td>
+              <td>Potential origin IP exposure detected for CDN-protected infrastructure.</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>DNS-DKIM-001</td>
+              <td>DNS</td>
+              <td><span class="badge LOW">LOW</span></td>
+              <td>No DKIM hints discovered in queried TXT records.</td>
+              <td>2</td>
+            </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="recommendations" class="card">
+      <h2>Recommendations</h2>
+      <ol>
+            <li><strong>HDR-001</strong> — Implement a strict CSP policy tailored to required assets.</li>
+            <li><strong>HDR-101</strong> — Set a secure default for permissions-policy.</li>
+            <li><strong>HDR-102</strong> — Set a secure default for x-xss-protection.</li>
+            <li><strong>DNS-ORIGIN-001</strong> — Restrict origin access to CDN egress ranges only.</li>
+            <li><strong>DNS-DKIM-001</strong> — Ensure DKIM selectors are configured for active mail domains.</li>
+      </ol>
+    </section>
+
+    <section id="appendix" class="card">
+      <h2>Appendix</h2>
+      <p>Raw Subdomains: 2</p>
+      <p>Raw DNS A Records: 172.66.0.96, 162.159.140.98</p>
+      <p>Historical Subdomains: </p>
+      <h3>Non-Security Headers</h3>
+      <table class="sortable">
+        <thead><tr><th>Header</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>date</td><td>Fri, 20 Mar 2026 05:41:45 GMT</td></tr>
+          <tr><td>content-type</td><td>text/html; charset=utf-8</td></tr>
+          <tr><td>transfer-encoding</td><td>chunked</td></tr>
+          <tr><td>connection</td><td>keep-alive</td></tr>
+          <tr><td>content-encoding</td><td>gzip</td></tr>
+          <tr><td>cache-control</td><td>public, max-age=60</td></tr>
+          <tr><td>vary</td><td>Cookie, Accept-Encoding</td></tr>
+          <tr><td>set-cookie</td><td>__cf_bm=BO1i4m2zLyAFZ2.NOMC60oLt5ot1gSgiJ0iDKNjGRjo-1773985305-1.0.1.1-Z4yf65W3xA4t6HqoT3pBgQ0CunCj7F85wGt7DsJg4aWXp3vto5szFgqvuoD3mZp3heLeMr4_Kx.XBBvlXXFdS9aptW7WikjKpyjVNpm59Y0; path=/; expires=Fri, 20-Mar-26 06:11:45 GMT; domain=.reservexbd.com; HttpOnly; Secure; SameSite=None</td></tr>
+          <tr><td>x-do-app-origin</td><td>37a6da98-45e3-482d-92da-55ce0066f105</td></tr>
+          <tr><td>x-do-orig-status</td><td>200</td></tr>
+          <tr><td>cf-cache-status</td><td>MISS</td></tr>
+          <tr><td>server</td><td>cloudflare</td></tr>
+          <tr><td>cf-ray</td><td>9df263ba4ef733d3-DAC</td></tr>
+          <tr><td>alt-svc</td><td>h3=":443"; ma=86400</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      This report was generated passively for educational/authorized assessment purposes only.
+    </footer>
+  </main>
+
+  <script>
+    const gauge = document.querySelector('.gauge');
+    if (gauge) {
+      const score = Number(gauge.dataset.score || 0);
+      const maxDeg = Math.max(0, Math.min(360, Math.round((score / 100) * 360)));
+      let current = 0;
+      const animate = () => {
+        current += 6;
+        if (current >= maxDeg) current = maxDeg;
+        gauge.style.background = `conic-gradient(var(--accent) ${current}deg, #2d333b ${current}deg)`;
+        if (current < maxDeg) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }
+
+    document.querySelectorAll('table.sortable th').forEach((header, index) => {
+      header.addEventListener('click', () => {
+        const table = header.closest('table');
+        const tbody = table.querySelector('tbody');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        const asc = header.dataset.asc !== 'true';
+        rows.sort((a, b) => {
+          const av = a.children[index]?.innerText?.trim() || '';
+          const bv = b.children[index]?.innerText?.trim() || '';
+          return asc ? av.localeCompare(bv, undefined, { numeric: true }) : bv.localeCompare(av, undefined, { numeric: true });
+        });
+        header.dataset.asc = asc;
+        rows.forEach((row) => tbody.appendChild(row));
+      });
+    });
+  </script>
+</body>
+</html>

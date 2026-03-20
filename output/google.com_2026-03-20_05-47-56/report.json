@@ -1,0 +1,2614 @@
+{
+  "tool_name": "Attack Surface Mapping & Passive Reconnaissance Toolkit",
+  "version": "1.0.0",
+  "domain": "google.com",
+  "timestamp": "March 20, 2026 at 05:47 UTC",
+  "subdomains": [
+    {
+      "name": "accounts.flexpack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "accounts.freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "accounts.google.com",
+      "status": "REDIRECT",
+      "ip": "192.178.211.84",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F"
+    },
+    {
+      "name": "ads-compare.eem.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "adwords.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "192.178.211.101",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt1.aspmx.l.google.com",
+      "status": "LIVE",
+      "ip": "172.217.221.27",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt1.gmail-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "172.217.221.27",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt1.gmr-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "172.217.221.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt2.aspmx.l.google.com",
+      "status": "LIVE",
+      "ip": "192.178.163.26",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt2.gmail-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "192.178.163.27",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt2.gmr-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "192.178.163.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt3.aspmx.l.google.com",
+      "status": "LIVE",
+      "ip": "172.217.78.26",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt3.gmail-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "172.217.78.27",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt3.gmr-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "172.217.78.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt4.aspmx.l.google.com",
+      "status": "LIVE",
+      "ip": "142.250.101.26",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt4.gmail-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "142.250.101.27",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "alt4.gmr-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "142.250.101.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "answers.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "http://answers.google.com/answers/"
+    },
+    {
+      "name": "apis.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "appengine.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://console.cloud.google.com/appengine"
+    },
+    {
+      "name": "apps-secure-data-connector.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "aspmx.l.google.com",
+      "status": "LIVE",
+      "ip": "142.250.4.26",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "audioads.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.251.220.110",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "auth.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "bigstore-test.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "bigstore.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?s=bigstore.corp.google.com:443/uberproxy/&d=https://bigstore.corp.google.com/%3Fupxsrf%3DAM2vRLlM50LDdaNwc5NNWD8ZoY5uzLN8jOythg9Sz7fuLJG62w:1773985700632&maxAge=1200&authLevel=2000000&keyIds=588916238,1331854303,-337386367,788849210,-1430978537,1163017845,-100563820,2023603197&c=1"
+    },
+    {
+      "name": "blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "blogspot.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "c.pack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache1.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache1.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache1.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache2.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache2.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache2.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache3.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache3.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache3.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache4.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache4.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache4.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache5.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache5.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache5.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache6.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache6.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache6.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache7.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache7.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache7.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache8.c.docs.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache8.c.play.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cache8.c.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cag.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cert-test.sandbox.google.com",
+      "status": "LIVE",
+      "ip": "74.125.68.90",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "checkout.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "chrome.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://www.google.com/chrome/"
+    },
+    {
+      "name": "client-channel.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.251.43.46",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "clients.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cloud.google.com",
+      "status": "LIVE",
+      "ip": "142.251.221.174",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "cod.ext.google.com",
+      "status": "LIVE",
+      "ip": "216.239.44.73",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "code.google.com",
+      "status": "LIVE",
+      "ip": "142.251.222.174",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "corp-backups.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.4.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "da.ext.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "da.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "dasher-qa.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "dasher.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?s=dasher.corp.google.com:443/uberproxy/&d=https://dasher.corp.google.com/%3Fupxsrf%3DAM2vRLm73F699W37sg9uhG_xU1gxjGTLMy7aOfXEcw0SHPyzSg:1773985702741&maxAge=1200&authLevel=2000000&keyIds=588916238,1331854303,-337386367,788849210,-1430978537,1163017845,-100563820,2023603197&c=1"
+    },
+    {
+      "name": "demetrius-codespot.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "demetrius-googlecode.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "demetrius.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "desktop.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.77.100",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "devconsole-testers.sandbox.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "172.217.194.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "developer.google.com",
+      "status": "REDIRECT",
+      "ip": "142.251.43.238",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://developers.google.com/"
+    },
+    {
+      "name": "developers.google.com",
+      "status": "LIVE",
+      "ip": "142.250.205.142",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "dfa7.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "dg.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "172.217.194.176",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "docs-dev.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "docs-nightly.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "docs-platinum.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "docs-qa.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?s=docs-qa.corp.google.com:443/uberproxy/&d=https://docs-qa.corp.google.com/%3Fupxsrf%3DAM2vRLmEryZyVRmGM52sNqIT-3pg1dSusAaX3wcsEwkNSGMzEA:1773985704743&maxAge=1200&authLevel=2000000&keyIds=588916238,1331854303,-337386367,788849210,-1430978537,1163017845,-100563820,2023603197&c=1"
+    },
+    {
+      "name": "docs.google.com",
+      "status": "REDIRECT",
+      "ip": "142.251.220.110",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://docs.google.com/&followup=https://docs.google.com/&emr=1"
+    },
+    {
+      "name": "docs.sandbox.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.4.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://docs.sandbox.google.com/&followup=https://docs.sandbox.google.com/&emr=1"
+    },
+    {
+      "name": "drive-test.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "drive.google.com",
+      "status": "REDIRECT",
+      "ip": "172.217.24.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://drive.google.com/&followup=https://drive.google.com/&emr=1"
+    },
+    {
+      "name": "drive.sandbox.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://drive.sandbox.google.com/&followup=https://drive.sandbox.google.com/"
+    },
+    {
+      "name": "dthree.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "ecc-test.sandbox.google.com",
+      "status": "LIVE",
+      "ip": "142.251.12.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "eggroll.ext.google.com",
+      "status": "LIVE",
+      "ip": "216.239.44.90",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "flexpack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "focus.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "fra-da.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "freezone.accounts.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "freezone.m.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "freezone.mail.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "friendconnect.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "gaiastaging.flexpack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "gaiastaging.freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "games.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "ghs.google.com",
+      "status": "LIVE",
+      "ip": "142.250.67.51",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "git.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://gerrit-review.googlesource.com/"
+    },
+    {
+      "name": "glass-eur.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "glass-mtv.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "glass-twd.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "glass.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "gmail-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "74.125.24.27",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "gmail.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "/mail/"
+    },
+    {
+      "name": "gmr-smtp-in.l.google.com",
+      "status": "LIVE",
+      "ip": "74.125.200.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "google-proxy-74-125-212-167.google.com",
+      "status": "LIVE",
+      "ip": "74.125.212.167",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "google.com",
+      "status": "REDIRECT",
+      "ip": "142.251.222.206",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://www.google.com/"
+    },
+    {
+      "name": "googlesource.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "groups.google.com",
+      "status": "REDIRECT",
+      "ip": "64.233.170.113",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://groups.google.com/&followup=https://groups.google.com/"
+    },
+    {
+      "name": "hosted-id.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "hot-da.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "hyd-da.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "ice.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "ics.prod.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "images.google.com",
+      "status": "LIVE",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "images.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "jaiku.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.77.113",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "jmt0.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "jotspot-qa08.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "login.corp.google.com",
+      "status": "LIVE",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "loop.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "m.google.com",
+      "status": "REDIRECT",
+      "ip": "142.251.43.235",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://get.google.com/apptips/apps?utm_source=googlemobile&utm_campaign=redirect"
+    },
+    {
+      "name": "m.guts.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?s=m.guts.corp.google.com:443/uberproxy/&d=https://m.guts.corp.google.com/%3Fupxsrf%3DAM2vRLn4u-tJInJDexD8-HVFvAiVXHBy6ihO4i93u4TmmCEpRg:1773985709816&maxAge=1200&authLevel=2000000&keyIds=588916238,1331854303,-337386367,788849210,-1430978537,1163017845,-100563820,2023603197&c=1"
+    },
+    {
+      "name": "m.gutsdev.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?s=m.gutsdev.corp.google.com:443/uberproxy/&d=https://m.gutsdev.corp.google.com/%3Fupxsrf%3DAM2vRLn5rsHq7rFpIlM4QFTa8eem1K_0gg-atZALc34WdJtdOg:1773985710578&maxAge=1200&authLevel=1500&keyIds=588916238,1331854303,-337386367,788849210,-1430978537,1163017845,-100563820,2023603197&c=1"
+    },
+    {
+      "name": "mail-ua1-f9.google.com",
+      "status": "LIVE",
+      "ip": "209.85.222.9",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mail-vk1-f251.google.com",
+      "status": "LIVE",
+      "ip": "209.85.221.251",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mail.flexpack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mail.freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mail.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.205.69",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "/mail/"
+    },
+    {
+      "name": "meeting.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "misc-sni.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "misc.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mtalk.google.com",
+      "status": "LIVE",
+      "ip": "172.253.118.188",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mtv-da-1.ad.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mtv-da.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mtv-da.ext.google.com",
+      "status": "LIVE",
+      "ip": "216.239.45.170",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mx.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mygeist.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "mygeist2010.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "news-cctld.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.251.222.131",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "news.freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "onex.wifi.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-fixprod.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-impersonation.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-ocdemo.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-qa.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-staging.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-uberproxy.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-vctask0.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-vcvrfy.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-yhtask0.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-yhvrfy.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-yqtask0.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "orkut-yqvrfy.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "oz-gmail.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "oz-s2.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "oz-www.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "photos.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://www.google.com/photos/about/"
+    },
+    {
+      "name": "plus.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "plus.flexpack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "plus.freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "plus.google.com",
+      "status": "REDIRECT",
+      "ip": "142.251.223.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://workspaceupdates.googleblog.com/2023/04/new-community-features-for-google-chat-and-an-update-currents%20.html"
+    },
+    {
+      "name": "plusone.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "postini.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "profiles.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "prom-qa.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "prom-qa.sandbox.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "prom-test.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "prom-test.sandbox.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "74.125.24.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "prom.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?authLevel=2000000&c=1&d=https%3A%2F%2Fprom.corp.google.com%2F%3Fupxsrf%3DAM2vRLlJ84DqB2suCAFX2EzTiwdFCij29NH0iLdMY_uM7RfVmA%253A1773985712467&maxAge=1200&s=prom.corp.google.com%3A443%2Fuberproxy%2F"
+    },
+    {
+      "name": "proxyconfig.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?s=proxyconfig.corp.google.com:443/uberproxy/&d=https://proxyconfig.corp.google.com/%3Fupxsrf%3DAM2vRLnUu8snifoh-zbKLls9tz3qEHSSnQYPWI5cdrwzqnzyMQ:1773985712257&maxAge=1200&authLevel=2000000&keyIds=588916238,1331854303,-337386367,788849210,-1430978537,1163017845,-100563820,2023603197&c=1"
+    },
+    {
+      "name": "pub-5701735781782373.afd.ghs.google.com",
+      "status": "LIVE",
+      "ip": "142.250.205.115",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "qa.adz.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "rate-limited-proxy-74-125-149-19.google.com",
+      "status": "LIVE",
+      "ip": "74.125.149.19",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "rate-limited-proxy-74-125-151-227.google.com",
+      "status": "LIVE",
+      "ip": "74.125.151.227",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "rate-limited-proxy-74-125-218-131.google.com",
+      "status": "LIVE",
+      "ip": "74.125.218.131",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "reseed.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sandbox.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "172.253.118.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "script.sandbox.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.4.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://script.sandbox.google.com/home?authuser"
+    },
+    {
+      "name": "search.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://moma.corp.google.com/"
+    },
+    {
+      "name": "search.flexpack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "search.freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "services.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://www.google.com/"
+    },
+    {
+      "name": "sites-googlegroups-nightly.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa01.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa02.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa03.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa04.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa05.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa06.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa07.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-qa08.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites-googlegroups-tctest.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "sites.google.com",
+      "status": "REDIRECT",
+      "ip": "142.250.207.78",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://sites.google.com/&followup=https://sites.google.com/"
+    },
+    {
+      "name": "sites.sandbox.google.com",
+      "status": "REDIRECT",
+      "ip": "74.125.130.81",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://sites.sandbox.google.com/&followup=https://sites.sandbox.google.com/"
+    },
+    {
+      "name": "soaproxyprod01.ext.google.com",
+      "status": "LIVE",
+      "ip": "72.14.225.70",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "soaproxytest01.ext.google.com",
+      "status": "LIVE",
+      "ip": "216.239.44.94",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "spdy-proxy-debug.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "spdy-proxy.ext.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-a.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-b.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-c.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-d.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-daily.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-daily.blogspot.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-gaia.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-git.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?authLevel=2000000&c=1&d=https%3A%2F%2Fstaging-git.corp.google.com%2F%3Fupxsrf%3DAM2vRLnpNIeprF9UNbp1Dx2goeBgn1DcaeEh5TsxsENLCQxCHg%253A1773985718585&maxAge=1200&s=staging-git.corp.google.com%3A443%2Fuberproxy%2F"
+    },
+    {
+      "name": "staging-googlesource.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-prod.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-weekly.blogger.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "staging-weekly.blogspot.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "talk.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "talkgadget.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.182.78",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "test.postini.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "toolbarqueries.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "192.178.211.99",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "toolbarqueries.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "192.178.211.147",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "trends.google.com",
+      "status": "REDIRECT",
+      "ip": "172.217.24.132",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://trends.google.com/trends/"
+    },
+    {
+      "name": "twd-da.ext.google.com",
+      "status": "LIVE",
+      "ip": "72.14.229.178",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "twdsalesgsa.twd.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "uberproxy-nocert.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "uberproxy-san.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "uberproxy.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://login.corp.google.com/request?s=uberproxy.corp.google.com:443/uberproxy/&d=https://uberproxy.corp.google.com/%3Fupxsrf%3DAM2vRLl-1kVF06y5oW0FCfZqN7lLSm2pyeXywxQmc8_LydvAnQ:1773985719866&maxAge=1200&authLevel=2000000&keyIds=588916238,1331854303,-337386367,788849210,-1430978537,1163017845,-100563820,2023603197&c=1"
+    },
+    {
+      "name": "upload.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.77.143",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "upload.video.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.251.43.143",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "urchin.corp.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "url.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "vp.video.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "webdrive-test-canary.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://drive.google.com/"
+    },
+    {
+      "name": "webdrive-test-prod.corp.google.com",
+      "status": "REDIRECT",
+      "ip": "172.253.118.129",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": "https://drive.google.com/"
+    },
+    {
+      "name": "wide-blogspot.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "192.178.211.197",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "wifi.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "192.178.211.123",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "www.flexpack.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "www.freezone.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": null,
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "www.google.com",
+      "status": "LIVE",
+      "ip": "142.251.155.119",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "www2.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "172.217.24.132",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    },
+    {
+      "name": "www3.l.google.com",
+      "status": "UNRESOLVABLE",
+      "ip": "142.250.206.14",
+      "source": "aggregated",
+      "cdn_provider": null,
+      "redirect_target": null
+    }
+  ],
+  "dns": {
+    "a": [
+      "142.251.222.206"
+    ],
+    "aaaa": [
+      "2404:6800:4007:833::200e"
+    ],
+    "mx": [
+      "10 smtp.google.com."
+    ],
+    "ns": [
+      "ns4.google.com.",
+      "ns2.google.com.",
+      "ns3.google.com.",
+      "ns1.google.com."
+    ],
+    "txt": [],
+    "cname": [],
+    "soa": [
+      "ns1.google.com. dns-admin.google.com. 885488807 900 900 1800 60"
+    ],
+    "ptr": [
+      "pnmaaa-as-in-f14.1e100.net.",
+      "hkg07s55-in-f14.1e100.net."
+    ],
+    "flags": [
+      {
+        "id": "DNS-SPF-001",
+        "category": "DNS",
+        "finding": "SPF record missing or malformed.",
+        "risk": "MEDIUM",
+        "score_impact": 5,
+        "recommendation": "Publish a valid SPF record to reduce spoofing risks.",
+        "references": [
+          "https://www.rfc-editor.org/rfc/rfc7208"
+        ]
+      },
+      {
+        "id": "DNS-DKIM-001",
+        "category": "DNS",
+        "finding": "No DKIM hints discovered in queried TXT records.",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Ensure DKIM selectors are configured for active mail domains.",
+        "references": [
+          "https://www.rfc-editor.org/rfc/rfc6376"
+        ]
+      }
+    ]
+  },
+  "whois_asn": {
+    "registrar": "MarkMonitor, Inc.",
+    "creation_date": "1997-09-15T04:00:00+00:00",
+    "expiry_date": "2028-09-14T04:00:00+00:00",
+    "registrant_country": "US",
+    "asn": "AS15169",
+    "organization": "Google LLC",
+    "ip_country": "Hong Kong",
+    "ip_city": "Hong Kong",
+    "reverse_ip_domains": [
+      "API count exceeded - Increase Quota with Membership"
+    ],
+    "expiring_soon": false
+  },
+  "ssl_tls": {
+    "issuer": "CN=WR2,O=Google Trust Services,C=US",
+    "subject": "CN=*.google.com",
+    "san_entries": [
+      "*.google.com",
+      "*.appengine.google.com",
+      "*.bdn.dev",
+      "*.origin-test.bdn.dev",
+      "*.cloud.google.com",
+      "*.crowdsource.google.com",
+      "*.datacompute.google.com",
+      "*.google.ca",
+      "*.google.cl",
+      "*.google.co.in",
+      "*.google.co.jp",
+      "*.google.co.uk",
+      "*.google.com.ar",
+      "*.google.com.au",
+      "*.google.com.br",
+      "*.google.com.co",
+      "*.google.com.mx",
+      "*.google.com.tr",
+      "*.google.com.vn",
+      "*.google.de",
+      "*.google.es",
+      "*.google.fr",
+      "*.google.hu",
+      "*.google.it",
+      "*.google.nl",
+      "*.google.pl",
+      "*.google.pt",
+      "*.googleapis.cn",
+      "*.gstatic.cn",
+      "*.gstatic-cn.com",
+      "googlecnapps.cn",
+      "*.googlecnapps.cn",
+      "googleapps-cn.com",
+      "*.googleapps-cn.com",
+      "gkecnapps.cn",
+      "*.gkecnapps.cn",
+      "googledownloads.cn",
+      "*.googledownloads.cn",
+      "recaptcha.net.cn",
+      "*.recaptcha.net.cn",
+      "recaptcha-cn.net",
+      "*.recaptcha-cn.net",
+      "widevine.cn",
+      "*.widevine.cn",
+      "ampproject.org.cn",
+      "*.ampproject.org.cn",
+      "ampproject.net.cn",
+      "*.ampproject.net.cn",
+      "google-analytics-cn.com",
+      "*.google-analytics-cn.com",
+      "googleadservices-cn.com",
+      "*.googleadservices-cn.com",
+      "googlevads-cn.com",
+      "*.googlevads-cn.com",
+      "googleapis-cn.com",
+      "*.googleapis-cn.com",
+      "googleoptimize-cn.com",
+      "*.googleoptimize-cn.com",
+      "doubleclick-cn.net",
+      "*.doubleclick-cn.net",
+      "*.fls.doubleclick-cn.net",
+      "*.g.doubleclick-cn.net",
+      "doubleclick.cn",
+      "*.doubleclick.cn",
+      "*.fls.doubleclick.cn",
+      "*.g.doubleclick.cn",
+      "dartsearch-cn.net",
+      "*.dartsearch-cn.net",
+      "googletraveladservices-cn.com",
+      "*.googletraveladservices-cn.com",
+      "googletagservices-cn.com",
+      "*.googletagservices-cn.com",
+      "googletagmanager-cn.com",
+      "*.googletagmanager-cn.com",
+      "googlesyndication-cn.com",
+      "*.googlesyndication-cn.com",
+      "*.safeframe.googlesyndication-cn.com",
+      "app-measurement-cn.com",
+      "*.app-measurement-cn.com",
+      "gvt1-cn.com",
+      "*.gvt1-cn.com",
+      "gvt2-cn.com",
+      "*.gvt2-cn.com",
+      "2mdn-cn.net",
+      "*.2mdn-cn.net",
+      "googleflights-cn.net",
+      "*.googleflights-cn.net",
+      "admob-cn.com",
+      "*.admob-cn.com",
+      "*.gemini.cloud.google.com",
+      "googlesandbox-cn.com",
+      "*.googlesandbox-cn.com",
+      "*.safenup.googlesandbox-cn.com",
+      "*.gstatic.com",
+      "*.metric.gstatic.com",
+      "*.gvt1.com",
+      "*.gcpcdn.gvt1.com",
+      "*.gvt2.com",
+      "*.gcp.gvt2.com",
+      "*.url.google.com",
+      "*.youtube-nocookie.com",
+      "*.ytimg.com",
+      "ai.android",
+      "android.com",
+      "*.android.com",
+      "*.flash.android.com",
+      "g.cn",
+      "*.g.cn",
+      "g.co",
+      "*.g.co",
+      "goo.gl",
+      "www.goo.gl",
+      "google-analytics.com",
+      "*.google-analytics.com",
+      "google.com",
+      "googlecommerce.com",
+      "*.googlecommerce.com",
+      "ggpht.cn",
+      "*.ggpht.cn",
+      "urchin.com",
+      "*.urchin.com",
+      "youtu.be",
+      "youtube.com",
+      "*.youtube.com",
+      "music.youtube.com",
+      "*.music.youtube.com",
+      "youtubeeducation.com",
+      "*.youtubeeducation.com",
+      "youtubekids.com",
+      "*.youtubekids.com",
+      "yt.be",
+      "*.yt.be",
+      "android.clients.google.com",
+      "*.android.google.cn",
+      "*.chrome.google.cn",
+      "*.developers.google.cn",
+      "*.aistudio.google.com"
+    ],
+    "not_after": "2026-05-18T18:19:43+00:00",
+    "days_remaining": 59,
+    "tls_version": "TLSv1.3",
+    "self_signed": false,
+    "wildcard_cert": true,
+    "hsts_present": false,
+    "flags": [
+      {
+        "id": "SSL-SAN-001",
+        "category": "SSL/TLS",
+        "finding": "SAN entries reveal internal/dev naming conventions.",
+        "risk": "MEDIUM",
+        "score_impact": 5,
+        "recommendation": "Avoid exposing non-production hostnames in public certificates.",
+        "references": [
+          "https://owasp.org/www-project-web-security-testing-guide/"
+        ]
+      }
+    ]
+  },
+  "tech": {
+    "web_server": [
+      "gws"
+    ],
+    "runtime": [],
+    "frameworks": [],
+    "cms": [],
+    "cdn_waf": [],
+    "frontend": [],
+    "analytics": [],
+    "evidence": [
+      "server:gws",
+      "favicon_mmh3:-1846423585"
+    ]
+  },
+  "headers": {
+    "headers": {
+      "date": "Fri, 20 Mar 2026 05:48:55 GMT",
+      "expires": "-1",
+      "cache-control": "private, max-age=0",
+      "content-type": "text/html; charset=ISO-8859-1",
+      "content-security-policy-report-only": "object-src 'none';base-uri 'self';script-src 'nonce-0QXxUpOZgilLaGYS3tvoKA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp",
+      "reporting-endpoints": "default=\"//www.google.com/httpservice/retry/jserror?ei=x9-8ad77LIf2seMP8-yxuQI&cad=crash&error=Page%20Crash&jsel=1&bver=2405&dpf=IyEo2Kat1ZmqnVAO15MkhmK9ZswHwWUDSK_1H6OL7uA\"",
+      "accept-ch": "Sec-CH-Prefers-Color-Scheme",
+      "p3p": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+      "content-encoding": "gzip",
+      "server": "gws",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "set-cookie": "__Secure-BUCKET=CLkF; expires=Wed, 16-Sep-2026 05:48:55 GMT; path=/; domain=.google.com; Secure; HttpOnly",
+      "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+      "transfer-encoding": "chunked"
+    },
+    "findings": [
+      {
+        "id": "HDR-001",
+        "category": "Security Headers",
+        "finding": "Content-Security-Policy header is missing",
+        "risk": "HIGH",
+        "score_impact": 8,
+        "recommendation": "Implement a strict CSP policy tailored to required assets.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      },
+      {
+        "id": "HDR-003",
+        "category": "Security Headers",
+        "finding": "Strict-Transport-Security header is missing",
+        "risk": "HIGH",
+        "score_impact": 8,
+        "recommendation": "Enable HSTS with an adequate max-age.",
+        "references": [
+          "https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security"
+        ]
+      },
+      {
+        "id": "HDR-102",
+        "category": "Security Headers",
+        "finding": "x-content-type-options header is missing",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Set a secure default for x-content-type-options.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      },
+      {
+        "id": "HDR-103",
+        "category": "Security Headers",
+        "finding": "referrer-policy header is missing",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Set a secure default for referrer-policy.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      },
+      {
+        "id": "HDR-104",
+        "category": "Security Headers",
+        "finding": "permissions-policy header is missing",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Set a secure default for permissions-policy.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      }
+    ]
+  },
+  "surface": {
+    "internal_links": [
+      "https://accounts.google.com/ServiceLogin?hl=bn&passive=true&continue=https://www.google.com/&ec=GAZAmgQ",
+      "https://google.com/advanced_search?hl=bn&authuser=0",
+      "https://google.com/intl/bn/about.html",
+      "https://google.com/intl/bn/ads/",
+      "https://mail.google.com/mail/&ogbl",
+      "https://www.google.com/imghp?hl=bn&ogbl",
+      "https://www.google.com/setprefs?sig=0_749q7QN2dCjnpoD5RjbdDT3mNF4%3D&hl=en",
+      "https://www.google.com/setprefs?sig=0_749q7QN2dCjnpoD5RjbdDT3mNF4%3D&hl=en&source=homepage&sa=X&ved=0ahUKEwjb4ZLt462TAxXWz6ACHSanHVMQ2ZgBCAU"
+    ],
+    "external_links": [
+      "https://www.google.com.bd/intl/bn/about/products"
+    ],
+    "scripts": [
+      "inline-script"
+    ],
+    "forms": [
+      "https://google.com/search"
+    ],
+    "api_routes": [],
+    "admin_paths": [],
+    "emails": [],
+    "meta": {},
+    "robots_disallow": [
+      "/?",
+      "/?hl=*&",
+      "/?hl=*&*&gws_rd=ssl",
+      "/about/careers/applications-a/jobs/results",
+      "/about/careers/applications/candidate-prep",
+      "/about/careers/applications/connect-with-a-googler",
+      "/about/careers/applications/jobs/results",
+      "/about/careers/applications/jobs/results/?*&page=",
+      "/about/careers/applications/jobs/results/?page=",
+      "/about/careers/applications/jobs/results?*&page=",
+      "/about/careers/applications/jobs/results?page=",
+      "/accounts/ClientAuth",
+      "/accounts/ClientLogin",
+      "/accounts/o8",
+      "/aclk",
+      "/alerts/",
+      "/analytics/feeds/",
+      "/analytics/partners/comments/",
+      "/analytics/portal/",
+      "/analytics/uploads/",
+      "/bkshp?*dq=",
+      "/bkshp?*q=",
+      "/books/",
+      "/books?*buy=",
+      "/books?*dq=",
+      "/books?*jscmd=",
+      "/books?*jtp=",
+      "/books?*output=",
+      "/books?*pg=",
+      "/books?*q=",
+      "/books?*qtid=",
+      "/books?*zoom=",
+      "/cbk",
+      "/citations?",
+      "/compressiontest/",
+      "/edu/cs4hs/",
+      "/evaluation/",
+      "/forms/perks/",
+      "/gallery/",
+      "/groups",
+      "/help/maps/indoormaps/partners/",
+      "/help/maps/streetview/partners/welcome/",
+      "/hosted/images/",
+      "/hotelfinder/rpc",
+      "/hotels/rpc",
+      "/ie?",
+      "/imgres",
+      "/imode/?",
+      "/imode/search?",
+      "/imode?",
+      "/index.html?",
+      "/jsky/?",
+      "/jsky/search?",
+      "/jsky?",
+      "/labs/popgadget/search",
+      "/landing/cmsnext-root/",
+      "/landing/now/ontap/",
+      "/landing/signout.html",
+      "/local/cars",
+      "/local/dealership/",
+      "/local/dining/",
+      "/local/place/products/",
+      "/local/place/rap/",
+      "/local/place/reviews/",
+      "/local/tab/",
+      "/local?",
+      "/local_url",
+      "/localservices/",
+      "/lochp?",
+      "/m/",
+      "/m?",
+      "/maphp?",
+      "/maps/",
+      "/maps/api/js/",
+      "/maps/api/place/js/",
+      "/maps/api/staticmap",
+      "/maps/api/streetview",
+      "/maps/reserve/api/",
+      "/maps/reserve/b/",
+      "/maps/reserve/bookings",
+      "/maps/reserve/feedback",
+      "/maps/reserve/m/",
+      "/maps/reserve/manage",
+      "/maps/reserve/partner-dashboard",
+      "/maps/reserve/payment",
+      "/maps/reserve/receipt",
+      "/maps/reserve/search",
+      "/maps/reserve/sellersignup",
+      "/maps/reserve/settings",
+      "/maps/reserve/terms",
+      "/maps?",
+      "/mapslt?",
+      "/mld?",
+      "/movies?",
+      "/musica",
+      "/musicl",
+      "/musics",
+      "/nonprofits/account/",
+      "/patents/download/",
+      "/patents/pdf/",
+      "/patents/related/",
+      "/patents?",
+      "/pda/?",
+      "/pda/search?",
+      "/pda?",
+      "/phone/compare/?",
+      "/print",
+      "/product_",
+      "/products;",
+      "/products?",
+      "/products_",
+      "/profiles/me",
+      "/quality_form?",
+      "/reviews/polls/",
+      "/reviews/search?",
+      "/s2",
+      "/s2/profiles/me",
+      "/s?",
+      "/scholar",
+      "/sdch",
+      "/search",
+      "/setprefs",
+      "/shopping/deals",
+      "/shopping/product/",
+      "/shopping/ratings/account/metrics",
+      "/shopping/ratings/merchant/immersivedetails",
+      "/shopping/reviewer",
+      "/shopping/search",
+      "/shopping/seller",
+      "/shopping/suppliers/search",
+      "/shopping?",
+      "/staticmap?",
+      "/storefront",
+      "/storepicker",
+      "/support/forum/search?",
+      "/tbproxy/",
+      "/transconsole/portal/",
+      "/transit?",
+      "/travel/clk",
+      "/travel/entity",
+      "/travel/flights/booking",
+      "/travel/flights/s/",
+      "/travel/flights/search",
+      "/travel/hotels/*/stories",
+      "/travel/hotels/stories",
+      "/travel/search",
+      "/travel/story",
+      "/trends/api",
+      "/trends/beta",
+      "/trends/embed.js?",
+      "/trends/explore?",
+      "/trends/fetchComponent?",
+      "/trends/hottrends?",
+      "/trends/music?",
+      "/trends/topics",
+      "/trends/viz?",
+      "/trends?",
+      "/trustedstores/s/",
+      "/trustedstores/tm2",
+      "/trustedstores/verify",
+      "/u/",
+      "/uds/",
+      "/urchin_test/",
+      "/uviewer",
+      "/wapsearch?",
+      "/wml/?",
+      "/wml/search?",
+      "/wml?",
+      "/xhtml/?",
+      "/xhtml/search?",
+      "/xhtml?",
+      "/xml?"
+    ],
+    "sitemap_urls": [
+      "https://www.google.com/admob/sitemap.xml",
+      "https://www.google.com/adsense/start/sitemap.xml",
+      "https://www.google.com/adwords/sitemap.xml",
+      "https://www.google.com/calendar/about/sitemap.xml",
+      "https://www.google.com/chrome/sitemap.xml",
+      "https://www.google.com/chromebook/sitemap.xml",
+      "https://www.google.com/docs/sitemaps.xml",
+      "https://www.google.com/drive/sitemap.xml",
+      "https://www.google.com/finance/sitemap.xml",
+      "https://www.google.com/forms/sitemaps.xml",
+      "https://www.google.com/get/sitemap.xml",
+      "https://www.google.com/gmail/sitemap.xml",
+      "https://www.google.com/grants/sitemap.xml",
+      "https://www.google.com/nonprofits/sitemap.xml",
+      "https://www.google.com/partners/about/sitemap.xml",
+      "https://www.google.com/photos/sitemap.xml",
+      "https://www.google.com/sheets/sitemaps.xml",
+      "https://www.google.com/shopping/sitemap.xml",
+      "https://www.google.com/slides/sitemaps.xml",
+      "https://www.google.com/travel/flights/sitemap.xml"
+    ],
+    "security_txt": {
+      "contact": "mailto:security@google.com",
+      "encryption": "https://services.google.com/corporate/publickey.txt",
+      "acknowledgments": "https://bughunters.google.com/",
+      "policy": "https://g.co/vrp",
+      "hiring": "https://g.co/SecurityPrivacyEngJobs",
+      "expires": "2030-04-01T00:00:00z"
+    }
+  },
+  "wayback": {
+    "urls": [],
+    "historical_subdomains": [],
+    "risky_urls": []
+  },
+  "exposure": {
+    "score": 17,
+    "label": "LOW EXPOSURE",
+    "breakdown": {
+      "ssl_issues": 2,
+      "missing_headers": 11,
+      "dns_issues": 3,
+      "admin_exposure": 0,
+      "tech_exposure": 1,
+      "wayback_risks": 0,
+      "surface_size": 0
+    },
+    "findings": [
+      {
+        "id": "SSL-SAN-001",
+        "category": "SSL/TLS",
+        "finding": "SAN entries reveal internal/dev naming conventions.",
+        "risk": "MEDIUM",
+        "score_impact": 5,
+        "recommendation": "Avoid exposing non-production hostnames in public certificates.",
+        "references": [
+          "https://owasp.org/www-project-web-security-testing-guide/"
+        ]
+      },
+      {
+        "id": "HDR-001",
+        "category": "Security Headers",
+        "finding": "Content-Security-Policy header is missing",
+        "risk": "HIGH",
+        "score_impact": 8,
+        "recommendation": "Implement a strict CSP policy tailored to required assets.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      },
+      {
+        "id": "HDR-003",
+        "category": "Security Headers",
+        "finding": "Strict-Transport-Security header is missing",
+        "risk": "HIGH",
+        "score_impact": 8,
+        "recommendation": "Enable HSTS with an adequate max-age.",
+        "references": [
+          "https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security"
+        ]
+      },
+      {
+        "id": "HDR-102",
+        "category": "Security Headers",
+        "finding": "x-content-type-options header is missing",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Set a secure default for x-content-type-options.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      },
+      {
+        "id": "HDR-103",
+        "category": "Security Headers",
+        "finding": "referrer-policy header is missing",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Set a secure default for referrer-policy.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      },
+      {
+        "id": "HDR-104",
+        "category": "Security Headers",
+        "finding": "permissions-policy header is missing",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Set a secure default for permissions-policy.",
+        "references": [
+          "https://owasp.org/www-project-secure-headers/"
+        ]
+      },
+      {
+        "id": "DNS-SPF-001",
+        "category": "DNS",
+        "finding": "SPF record missing or malformed.",
+        "risk": "MEDIUM",
+        "score_impact": 5,
+        "recommendation": "Publish a valid SPF record to reduce spoofing risks.",
+        "references": [
+          "https://www.rfc-editor.org/rfc/rfc7208"
+        ]
+      },
+      {
+        "id": "DNS-DKIM-001",
+        "category": "DNS",
+        "finding": "No DKIM hints discovered in queried TXT records.",
+        "risk": "LOW",
+        "score_impact": 2,
+        "recommendation": "Ensure DKIM selectors are configured for active mail domains.",
+        "references": [
+          "https://www.rfc-editor.org/rfc/rfc6376"
+        ]
+      }
+    ]
+  }
+}
